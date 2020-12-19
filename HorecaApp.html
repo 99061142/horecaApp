@@ -1,0 +1,100 @@
+<body>
+<head>
+<script>
+
+
+//prijzen voor het drinken en de snacks
+const PRIJSFRIS = 2;
+const PRIJSBIER = 3;
+const PRIJSWIJN = 4;
+const PRIJSSNACKSCHALENACHT = 4;
+const PRIJSSNACKSCHALENZESTIEN = 7.50;
+
+//Het systeem onthoud hoeveel je hebt besteld
+var aantalfris = 0;
+var aantalbier = 0;
+var aantalwijn = 0;
+var aantalsnacks = 0;
+var aantalsnackschalenacht = 0;
+var aantalsnackschalenzestien = 0;
+
+//Als je niks koopt is het antwoord automatisch 0
+var prijsfrisuitkomst = 0;
+var prijsbieruitkomst = 0;
+var prijswijnuitkomst = 0;
+var prijssnackschalenachtuitkomst = 0;
+var prijssnackschalenzestienuitkomst = 0;
+
+
+//Functie voor het drinken
+function bestel(){
+	var vraagdrinken = true;
+	while (vraagdrinken) {
+		var product = prompt('wilt u fris, bier, wijn of een snack? Typ "stop" als je klaar bent').toLowerCase();
+		if(product == 'fris'){
+			aantalfris = aantalfris + Number(prompt('hoeveel fris wilt u?'));
+		}
+		else if(product == 'bier'){
+			aantalbier = aantalbier + Number(prompt('hoeveel bier wilt u?'));
+		}
+		else if(product == 'wijn'){
+			aantalwijn = aantalwijn + Number(prompt('hoeveel wijn wilt u?'));
+		}
+		else if(product == 'snack'){{
+			aantalsnacks = Number(prompt('Hoeveel bitterballen wilt u toevoegen? Je kan kiezen tussen 8 of 16'));
+		}
+		if(aantalsnacks == 8){
+			aantalsnackschalenacht = aantalsnackschalenacht + Number(prompt('Hoeveel schalen van 8 snacks wilt u?'));
+		}
+		else if(aantalsnacks == 16){
+			aantalsnackschalenzestien = aantalsnackschalenzestien + Number(prompt('Hoeveel schalen van 16 snacks wilt u?'));
+		}
+		else{
+			alert('U kunt alleen een keuze maken tussen 8 en 16. De snacks zijn niet toegevoegd aan de bestelling.');
+		}}//Geeft alleen de alert als je een snack wou kopen, en niet de keuze maakte tussen 8 of 16
+		else if(product == 'stop'){
+			vraagdrinken = false;
+		}
+		else{
+			alert('geen geldig product');
+		}//Geeft dit alleen aan als je niet kiest tussen het drinken, of snacks wat er stond
+	}
+	eindprijsbon();//Gaat automatisch naar de eindbon als je "stop" hebt gekozen
+}
+bestel();
+
+
+//Berekent de prijzen wat de klant gekocht heeft
+function eindprijsbon(){
+	prijsfrisuitkomst = aantalfris * PRIJSFRIS;
+	prijsbieruitkomst = aantalbier * PRIJSBIER;
+	prijswijnuitkomst = aantalwijn * PRIJSWIJN;
+	prijssnackschalenachtuitkomst = aantalsnackschalenacht * PRIJSSNACKSCHALENACHT;
+	prijssnackschalenzestienuitkomst = aantalsnackschalenzestien * PRIJSSNACKSCHALENZESTIEN;
+}
+
+
+//Op het scherm laten zien wat eindprijs is
+if(aantalfris >= 1){
+	document.write('U heeft ' + aantalfris + ' fris besteld, dat wordt toaal: €' + prijsfrisuitkomst + '<br>');
+}
+if(aantalbier >= 1){
+	document.write('U heeft ' + aantalbier + ' bier besteld, dat wordt toaal: €' + prijsbieruitkomst + '<br>');
+}
+if(aantalwijn >= 1){
+	document.write('U heeft ' + aantalwijn + ' wijn besteld, dat wordt toaal: €' + prijswijnuitkomst + '<br>');
+}
+if(aantalsnackschalenacht >= 1){
+	document.write('U heeft ' + aantalsnackschalenacht + ' snackschalen met 8 stuks besteld, dat wordt toaal: €' + prijssnackschalenachtuitkomst + '<br>');
+}
+if(aantalsnackschalenzestien >= 1){
+	document.write('U heeft ' + aantalsnackschalenzestien + ' snackschalen met 16 stuks besteld, dat wordt toaal: €' + prijssnackschalenzestienuitkomst + '<br>');
+}
+//Rekent de uitkomst uit van al het drinken en snacks wat de persoon heeft gekocht.
+eindbedrag = prijsfrisuitkomst + prijsbieruitkomst + prijswijnuitkomst + prijssnackschalenachtuitkomst + prijssnackschalenzestienuitkomst;
+
+//Laat op het scherm zien wat het toaalbedrag is voor al het drinken en snacks wat de persoon heeft gekocht.
+document.write("dat kost dan totaal: €" + eindbedrag)
+</script>
+</head>
+</body>
