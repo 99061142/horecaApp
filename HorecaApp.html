@@ -1,113 +1,16 @@
-<body>
-<head>
-<script>
-
-
-//prijzen voor het drinken en de snacks
-const PRIJSFRIS = 2;
-const PRIJSBIER = 3;
-const PRIJSWIJN = 4;
-const PRIJSSNACKSCHALENACHT = 4;
-const PRIJSSNACKSCHALENZESTIEN = 7.50;
-
-//Het systeem onthoud hoeveel je hebt besteld
-var aantalfris = 0;
-var aantalbier = 0;
-var aantalwijn = 0;
-var aantalsnacks = 0;
-var aantalsnackschalenacht = 0;
-var aantalsnackschalenzestien = 0;
-//Als je niks koopt is het antwoord automatisch 0
-var prijsfrisuitkomst = 0;
-var prijsbieruitkomst = 0;
-var prijswijnuitkomst = 0;
-var prijssnackschalenachtuitkomst = 0;
-var prijssnackschalenzestienuitkomst = 0;
-
-
-//De functie voor het drinken wordt automatisch gestart als je de browser opent.
-function bestel(){
-	var vraagdrinken = true;
-	while(vraagdrinken){
-		var product = prompt('wilt u fris, bier, wijn of een snack? Typ "stop" als je klaar bent').toLowerCase();
-		//Als je "fris" kiest wordt de volgende vraag gestelt.
-		if(product == 'fris'){
-			aantalfris = aantalfris + Number(prompt('hoeveel fris wilt u?'));
-		}
-		//Als je "bier" kiest wordt de volgende vraag gestelt.
-		else if(product == 'bier'){
-			aantalbier = aantalbier + Number(prompt('hoeveel bier wilt u?'));
-		}
-		//Als je "wijn" kiest wordt de volgende vraag gestelt.
-		else if(product == 'wijn'){
-			aantalwijn = aantalwijn + Number(prompt('hoeveel wijn wilt u?'));
-		}
-		//Als je "snack" kiest wordt de volgende vraag gestelt.
-		else if(product == 'snack'){{
-			aantalsnacks = Number(prompt('Hoeveel bitterballen wilt u toevoegen? Je kan kiezen tussen 8 of 16'));
-		}
-		//Als je "8" invult voor hoeveel bitterballen je wilt wordt de volgende vraag gestelt.
-		if(aantalsnacks == 8){
-			aantalsnackschalenacht = aantalsnackschalenacht + Number(prompt('Hoeveel schalen van 8 snacks wilt u?'));
-		}
-		//Als je "16" invult voor hoeveel bitterballen je wilt wordt de volgende vraag gestelt.
-		else if(aantalsnacks == 16){
-			aantalsnackschalenzestien = aantalsnackschalenzestien + Number(prompt('Hoeveel schalen van 16 snacks wilt u?'));
-		}
-		//Als je niet 8 of 16 kiest wordt de volgende code weergeven en ga je terug naar de vraag wat je wilt bestellen.
-		else{
-			alert('U kunt alleen een keuze maken tussen 8 en 16. De snacks zijn niet toegevoegd aan de bestelling.');
-		}}
-		//Als je "stop" kiest bij de vraag wat je wilt bestellen krijg je de bon te zien.
-		else if(product == 'stop'){
-			vraagdrinken = false;
-		}
-		//Als je niet "fris" "bier" "wijn" of "snack" hebt gekozen bij de vraag wat je wilt bestellen krijg wordt de volgende code weergeven.
-		else{
-			alert('U heeft een ongeldige invoer gedaan. Uw bestelling kan niet worden toegevoegd.');
-		}
-	}
-	//Gaat automatisch alles berekenen wat de klant heeft besteld, en laat de bon zien.
-	eindprijsbon();
-}
-bestel();
-
-
-//Berekent de prijzen wat de klant gekocht heeft
-function eindprijsbon(){
-	prijsfrisuitkomst = aantalfris * PRIJSFRIS;
-	prijsbieruitkomst = aantalbier * PRIJSBIER;
-	prijswijnuitkomst = aantalwijn * PRIJSWIJN;
-	prijssnackschalenachtuitkomst = aantalsnackschalenacht * PRIJSSNACKSCHALENACHT;
-	prijssnackschalenzestienuitkomst = aantalsnackschalenzestien * PRIJSSNACKSCHALENZESTIEN;
-}
-
-
-//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal fris.
-if(aantalfris >= 1){
-	document.write('1 fris kost 2 euro. U heeft ' + aantalfris + ' fris besteld, dat wordt toaal: €' + prijsfrisuitkomst + '<br>');
-}
-//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal bier.
-if(aantalbier >= 1){
-	document.write('1 bier kost 3 euro. U heeft ' + aantalbier + ' bier besteld, dat wordt toaal: €' + prijsbieruitkomst + '<br>');
-}
-//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal wijn.
-if(aantalwijn >= 1){
-	document.write('1 wijn kost 4 euro. U heeft ' + aantalwijn + ' wijn besteld, dat wordt toaal: €' + prijswijnuitkomst + '<br>');
-}
-//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal snackschalen(van acht stuks).
-if(aantalsnackschalenacht >= 1){
-	document.write('1 snackschaal met acht stuks kost 4 euro. U heeft ' + aantalsnackschalenacht + ' snackschalen met 8 stuks besteld, dat wordt toaal: €' + prijssnackschalenachtuitkomst + '<br>');
-}
-//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal snackschalen(van zestien stuks).
-if(aantalsnackschalenzestien >= 1){
-	document.write('1 snackschaal met zestien stuks kost 7.50 euro. U heeft ' + aantalsnackschalenzestien + ' snackschalen met 16 stuks besteld, dat wordt toaal: €' + prijssnackschalenzestienuitkomst + '<br>');
-}
-//Rekent de uitkomst uit van al het drinken en snacks wat de persoon heeft gekocht.
-eindbedrag = prijsfrisuitkomst + prijsbieruitkomst + prijswijnuitkomst + prijssnackschalenachtuitkomst + prijssnackschalenzestienuitkomst;
-
-//Laat op het scherm zien wat het toaalbedrag is voor al het drinken en snacks wat de persoon heeft gekocht.
-document.write("dat kost dan in totaal: €" + eindbedrag)
-</script>
-</head>
-</body>
+<html>
+	<head>
+		<link rel="stylesheet" href="HorecaAppStyling.css">
+	</head>
+	<body>
+		<div>
+			<hr>
+			<div id="aantallen"></div>
+			<div id="producten"></div>
+			<div id="prijzen"></div>
+			<hr>
+			<p id="eindbedrag"></p>
+			<script src="HorecaAppCode.js"></script>
+		</div>
+	</body>
+<html>
