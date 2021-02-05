@@ -59,10 +59,11 @@ function bestel(){
 		//Als je niet "fris" "bier" "wijn" of "snack" hebt gekozen bij de vraag wat je wilt bestellen krijg wordt de volgende code weergeven.
 		else{
 			alert('U heeft een ongeldige invoer gedaan. Uw bestelling kan niet worden toegevoegd.');
-		}}
-		//Gaat automatisch alles berekenen wat de klant heeft besteld, en laat de bon zien als je "stop" hebt gekozen.
-		eindprijsbon();
+		}
 	}
+	//Gaat automatisch alles berekenen wat de klant heeft besteld.
+	eindprijsbon();
+}
 bestel();
 
 
@@ -77,40 +78,45 @@ function eindprijsbon(){
 	aantallen.innerHTML = aantallen.innerHTML + "AANTAL <br><br>";
 	producten.innerHTML = producten.innerHTML + "PRODUCTEN <br><br>";
 	prijzen.innerHTML = prijzen.innerHTML + "TOTAAL BEDRAG <br><br>";
+	//Laat de bon zien in de browser
+	bon();
 }
 
-//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal fris.
-if(aantalfris >= 1){
-	aantallen.innerHTML = aantallen.innerHTML + aantalfris + "<br>";
-	producten.innerHTML = producten.innerHTML + "Fris <br>";
-	prijzen.innerHTML = prijzen.innerHTML + prijsfrisuitkomst + "<br>";
-}
-//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal bier.
-if(aantalbier >= 1){
-	aantallen.innerHTML = aantallen.innerHTML + aantalbier + "<br>";
-	producten.innerHTML = producten.innerHTML + "bier <br>";
-	prijzen.innerHTML = prijzen.innerHTML + prijsbieruitkomst + "<br>";
-}
-//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal wijn.
-if(aantalwijn >= 1){
-	aantallen.innerHTML = aantallen.innerHTML + aantalwijn + "<br>";
-	producten.innerHTML = producten.innerHTML + "Wijn <br>";
-	prijzen.innerHTML = prijzen.innerHTML + prijswijnuitkomst + "<br>";
-}
-//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal snackschalen van acht stuks.
-if(aantalsnackschalenacht >= 1){
-	aantallen.innerHTML = aantallen.innerHTML + aantalsnackschalenacht + "<br>";
-	producten.innerHTML = producten.innerHTML + "Snackschalen acht <br>";
-	prijzen.innerHTML = prijzen.innerHTML + prijssnackschalenachtuitkomst + "<br>";
-}
-//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal snackschalen van zestien stuks.
-if(aantalsnackschalenzestien >= 1){
-	aantallen.innerHTML = aantallen.innerHTML + aantalsnackschalenzestien + "<br>";
-	producten.innerHTML = producten.innerHTML + "Snackschalen zestien <br>";
-	prijzen.innerHTML = prijzen.innerHTML + prijssnackschalenzestienuitkomst + "<br>";
-}
-//Rekent de uitkomst uit van al het drinken en snacks wat de persoon heeft gekocht.
-eindbedrag = prijsfrisuitkomst + prijsbieruitkomst + prijswijnuitkomst + prijssnackschalenachtuitkomst + prijssnackschalenzestienuitkomst;
 
-//Laat op het scherm zien wat het toaalbedrag is voor al het drinken en snacks wat de persoon heeft gekocht.
-document.getElementById("eindbedrag").innerHTML = "Totaal bedrag: " + eindbedrag;
+function bon(){
+	//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal fris.
+	if(aantalfris >= 1){
+		aantallen.innerHTML = aantallen.innerHTML + aantalfris + "<br>";
+		producten.innerHTML = producten.innerHTML + "Fris <br>";
+		prijzen.innerHTML = prijzen.innerHTML + prijsfrisuitkomst + "<br>";
+	}
+	//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal bier.
+	if(aantalbier >= 1){
+		aantallen.innerHTML = aantallen.innerHTML + aantalbier + "<br>";
+		producten.innerHTML = producten.innerHTML + "bier <br>";
+		prijzen.innerHTML = prijzen.innerHTML + prijsbieruitkomst + "<br>";
+	}
+	//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal wijn.
+	if(aantalwijn >= 1){
+		aantallen.innerHTML = aantallen.innerHTML + aantalwijn + "<br>";
+		producten.innerHTML = producten.innerHTML + "Wijn <br>";
+		prijzen.innerHTML = prijzen.innerHTML + prijswijnuitkomst + "<br>";
+	}
+	//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal snackschalen van acht stuks.
+	if(aantalsnackschalenacht >= 1){
+		aantallen.innerHTML = aantallen.innerHTML + aantalsnackschalenacht + "<br>";
+		producten.innerHTML = producten.innerHTML + "Snackschalen acht <br>";
+		prijzen.innerHTML = prijzen.innerHTML + prijssnackschalenachtuitkomst + "<br>";
+	}
+	//Laat op het scherm zien wat de klant zijn totale prijs is voor het aantal snackschalen van zestien stuks.
+	if(aantalsnackschalenzestien >= 1){
+		aantallen.innerHTML = aantallen.innerHTML + aantalsnackschalenzestien + "<br>";
+		producten.innerHTML = producten.innerHTML + "Snackschalen zestien <br>";
+		prijzen.innerHTML = prijzen.innerHTML + prijssnackschalenzestienuitkomst + "<br>";
+	}
+	//Rekent de uitkomst uit van al het drinken en snacks wat de persoon heeft gekocht.
+	eindbedrag = prijsfrisuitkomst + prijsbieruitkomst + prijswijnuitkomst + prijssnackschalenachtuitkomst + prijssnackschalenzestienuitkomst;
+
+	//Laat op het scherm zien wat het toaalbedrag is voor al het drinken en snacks wat de persoon heeft gekocht.
+	document.getElementById("eindbedrag").innerHTML = "Totaal bedrag: " + eindbedrag;
+}

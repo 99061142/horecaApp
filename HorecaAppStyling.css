@@ -1,22 +1,32 @@
+/* De hele browser */
 body{
 	margin: 0px;
 }
 
+
+/* Achtergrond van de bon */
 div{
 	background-color: grey;
 }
 
+
+/* De lijnen tussen de namen van wat de gebruiker heeft gekocht */
 
 hr{
 	border-top: 2px dashed black;
 	margin: 0px;
 }
 
+
+/* Zet het eindbedrag in het midden van de bon */
+
 p{
 	display: inline-block;
 	margin-left: 43.5%;
 }
 
+
+/* Grootte van de containers voor de aantallen/producten/totaalprijs */
 
 #aantallen, #prijzen{
 	width: 200px;
@@ -27,6 +37,5 @@ p{
 	width: 400px;
 }
 #aantallen, #prijzen, #producten{
-	border: 1px solid red;
 	display: inline-block;
 }
