@@ -1,10 +1,12 @@
 /* De hele browser */
+
 body{
 	margin: 0px;
 }
 
 
 /* Achtergrond van de bon */
+
 div{
 	background-color: grey;
 }
